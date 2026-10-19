@@ -218,3 +218,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Legendas originais dos vídeos: material de terceiros, não redistribuir.
+# Ficam só na máquina de quem mantém a skill (veja README, seção "Fonte").
+transcricoes/_originais/*
+!transcricoes/_originais/.gitkeep
+
+# Notas intermediárias por vídeo: trazem trechos curtos das legendas para
+# verificação e ficam só na máquina de quem mantém a skill.
+notas/por-aula/*
+!notas/por-aula/.gitkeep
+
+# Configuração local do Claude Code
+.claude/settings.local.json
