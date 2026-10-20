@@ -6,46 +6,81 @@ A skill ensina o Claude a criar, revisar e auditar landing pages, web apps e das
 
 ## Instalação
 
-Pré-requisito: Claude Code e uma cópia deste repositório (`git clone` ou ZIP). Os scripts copiam só `SKILL.md`, `references/` e `LICENSE`.
+Não precisa clonar o repositório: um comando baixa a versão mais recente e instala só `SKILL.md`, `references/` e `LICENSE`. Rode o comando **na pasta do projeto** onde quer usar a skill. A instalação fica em `.claude/skills/malewicz-design/`.
 
-### Em um projeto (recomendado: dá para commitar e compartilhar com o time)
-
-Linux, macOS ou Git Bash:
+### Linux, macOS, Git Bash e WSL
 
 ```bash
-bash install.sh /caminho/do/projeto
+curl -fsSL https://raw.githubusercontent.com/Maccena/Malewicz-Design/main/install.sh | bash
 ```
 
-Windows (PowerShell ou prompt de comando):
+Com opções, use `bash -s --` antes delas (obrigatório quando o script vem por pipe):
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Maccena/Malewicz-Design/main/install.sh | bash -s -- --global
+curl -fsSL https://raw.githubusercontent.com/Maccena/Malewicz-Design/main/install.sh | bash -s -- --force
+```
+
+### Windows (PowerShell 5.1 ou superior)
 
 ```powershell
-.\install.cmd "C:\caminho\do\projeto"
-# ou: powershell -ExecutionPolicy Bypass -File .\install.ps1 "C:\caminho\do\projeto"
+irm https://raw.githubusercontent.com/Maccena/Malewicz-Design/main/install.ps1 | iex
 ```
 
-Sem argumento, instala no diretório atual (se você estiver dentro deste repositório, o script recusa). O destino é `<projeto>/.claude/skills/malewicz-design/`. Use aspas em caminhos com espaço.
+Com opções, use este formato (o `| iex` puro não aceita parâmetros):
 
-### Para todos os seus projetos
-
-```bash
-bash install.sh --global       # Linux, macOS, Git Bash
-.\install.cmd -Global          # Windows
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/Maccena/Malewicz-Design/main/install.ps1))) -Global -Force
 ```
 
-O destino é `~/.claude/skills/malewicz-design/`.
+No PowerShell do Windows não use o comando `curl ... | bash`: com o WSL instalado, o `bash` é o lançador do WSL e a instalação roda dentro do Linux; e no PowerShell 5.1 o `curl` é um alias que não aceita `-fsSL`. Prefira os comandos acima.
 
 ### Opções
 
-| Bash | PowerShell / install.cmd | O que faz |
+| Bash | PowerShell | O que faz |
 |---|---|---|
-| `--force` | `-Force` | Substitui uma instalação existente |
+| `--global` | `-Global` | Instala para todos os seus projetos, em `~/.claude/skills/malewicz-design/` |
+| `--force` | `-Force` | Substitui uma instalação existente (atualiza) |
+| `--version X.Y.Z` | `-Version X.Y.Z` | Instala uma versão específica (tag `vX.Y.Z`) |
+| `--ref NOME` | `-Ref NOME` | Instala de um branch ou tag, por exemplo `main` |
 | `--uninstall` | `-Uninstall` | Remove a skill instalada |
 | `--dry-run` | `-DryRun` | Mostra o que faria, sem alterar nada |
 | `-h`, `--help` | `-Help` | Ajuda |
 
-Códigos de saída: 0 sucesso, 1 erro de uso ou validação, 2 já instalado (use `--force`).
+Para instalar em outra pasta, passe o caminho do projeto no fim (`bash -s -- /caminho/do/projeto` ou `-Path`/posição no PowerShell). Códigos de saída: 0 sucesso, 1 erro de uso ou validação, 2 já instalado (use `--force`).
 
 Atenção: `--force` e `--uninstall` removem a pasta `malewicz-design` inteira, inclusive arquivos que você tenha adicionado ou editado nela; o script lista esses arquivos antes de remover.
+
+### Versões
+
+Cada versão publicada tem uma tag `vX.Y.Z` e uma entrada no [CHANGELOG](CHANGELOG.md). Por padrão o instalador pega a versão mais recente.
+
+- **Fixar uma versão:** `--version 1.0.0` (ou `-Version 1.0.0`).
+- **Atualizar:** rode o mesmo comando de instalação com `--force`. O instalador mostra "instalando 1.1.0 (substituindo 1.0.0)".
+- **Qual versão eu tenho?** A versão está em `metadata.version` do `SKILL.md` instalado:
+
+  ```bash
+  grep -m1 'version:' .claude/skills/malewicz-design/SKILL.md          # Linux, macOS, Git Bash
+  ```
+
+  ```powershell
+  Select-String -Path .claude\skills\malewicz-design\SKILL.md -Pattern 'version:' | Select-Object -First 1
+  ```
+
+- **Remover:** o mesmo comando com `--uninstall` (`-Uninstall`).
+
+### Instalar a partir de um clone (alternativa)
+
+Se preferir clonar o repositório, rode o instalador de dentro dele; ele instala a cópia local:
+
+```bash
+git clone https://github.com/Maccena/Malewicz-Design && cd Malewicz-Design
+bash install.sh /caminho/do/projeto              # Linux, macOS, Git Bash
+```
+
+```powershell
+.\install.cmd "C:\caminho\do\projeto"            # Windows (não exige mudar a ExecutionPolicy)
+```
 
 ## Uso
 
@@ -56,7 +91,7 @@ Abra o Claude Code no projeto. A skill é carregada quando o pedido envolve desi
 /malewicz-design crie o hero da página inicial do app
 ```
 
-Se a pasta `.claude/skills` não existia quando a sessão começou, rode `/reload-skills` ou reinicie o Claude Code.
+Se a pasta `.claude/skills` não existia quando a sessão começou, rode `/reload-skills` ou reinicie o Claude Code. Para compartilhar com o time, faça commit de `.claude/skills/malewicz-design` no projeto.
 
 ## Estrutura
 
@@ -70,11 +105,27 @@ references/              regras por tema, carregadas sob demanda
   auditoria-e-anti-padroes.md
   portfolio-e-case-study.md
   carreira-e-resume.md
-install.sh, install.ps1, install.cmd
-LICENSE, .gitignore, .gitattributes
-notas/por-aula/          notas intermediárias por vídeo (local, não versionadas)
+install.sh, install.ps1, install.cmd   instaladores (não são copiados para o projeto)
+scripts/bump-version.sh  ferramenta do mantenedor para publicar versões
+CHANGELOG.md, LICENSE, .gitignore, .gitattributes
+notas/por-aula/          notas intermediárias por vídeo (locais, não versionadas)
 transcricoes/_originais/ legendas originais (locais, não versionadas)
 ```
+
+## Publicar uma versão (mantenedores)
+
+A versão fica em `metadata.version` no `SKILL.md`, e a tag `vX.Y.Z` é o que o instalador baixa.
+
+1. Escreva a entrada `## X.Y.Z — data` no `CHANGELOG.md`.
+2. Rode `bash scripts/bump-version.sh X.Y.Z`. Ele recusa versão sem entrada no changelog, repetida ou menor que a atual, e atualiza o `SKILL.md`.
+3. Faça o commit e crie a tag, como o script imprime:
+
+   ```bash
+   git add SKILL.md CHANGELOG.md && git commit -m "Release X.Y.Z"
+   git tag -a vX.Y.Z -m "vX.Y.Z" && git push origin main vX.Y.Z
+   ```
+
+Sem a tag no GitHub, o instalador falha ao resolver a "última versão" e sugere `--ref main`.
 
 ## Fonte e direitos
 
