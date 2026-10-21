@@ -4,6 +4,10 @@ Cada versão publicada da skill **malewicz-design**, da mais nova para a mais an
 `metadata.version` no `SKILL.md`; cada release tem uma tag git `vX.Y.Z`, e é a tag que o instalador baixa.
 Para publicar: escreva a entrada aqui, rode `scripts/bump-version.sh X.Y.Z` e siga os comandos que ele imprime.
 
+## 1.0.1 — 2026-10-21
+
+- Removida a seção de fontes complementares (sites do autor) de `references/landing-page-conversao.md`: a skill passa a se basear só nas aulas.
+
 ## 1.0.0 — 2026-10-20
 
 Primeira versão.

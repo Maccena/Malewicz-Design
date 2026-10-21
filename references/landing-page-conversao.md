@@ -16,7 +16,6 @@ Consulte ao criar, revisar ou criticar landing pages e sites de marketing (inclu
 - Pesquisa de concorrentes e benchmark
 - Redesign e iteração com dados
 - Métricas e resultados citados
-- Fontes complementares: sites do autor
 - Checklist de revisão
 
 ## Copy do hero e above the fold
@@ -220,19 +219,6 @@ Todos são resultados relatados pelo autor, não verificados.
 - Segundo breather: 40% de todos os cliques em CTA.
 - CTA preto no topo: mais cliques, sem queda no CTA principal (sem percentual informado).
 - Redesign 2.0 da plataforma de fundos (brand + caminhos + landing + onboarding + mobile): views +400%, clicks +350%, registrations +270%, time on site +60%; um funil-chave encurtado em cerca de 40% e os experts ficaram ainda mais satisfeitos. Atenção: esses percentuais pertencem ao redesign inteiro, não à landing isolada.
-
-## Fontes complementares: sites do autor
-
-Material de páginas comerciais do autor, não das aulas: Squareblack (consultoria) e Pageformance (ferramenta paga de benchmark de sites). São páginas promocionais, e o Pageformance não publica autor nem método de coleta. Use como contexto, nunca como regra: estas contagens descrevem o que sites capturados fazem; não as use como requisito, critério de revisão nem justificativa de design. Os dados do Pageformance trazem o rótulo de captura "Sep 2026" e mudam com o tempo.
-
-- Headlines (Pageformance, página de categorias): entre os 42 perfis de categoria (de 48; 3.810 sites monitorados) com headline mensurável, o ponto médio é de 6 palavras. Em Agency, o tamanho típico é 9 palavras (n=43 de 63 sites). O texto do Pageformance conclui que não há fórmula universal de headline: o que importa é a primeira tela tornar legível o valor específico da categoria.
-- Botões preenchidos lideram o tratamento capturado em 42 de 48 perfis de categoria, e sistemas de raio misto lideram em 28 (a página não informa o denominador desta última contagem). Texto do Pageformance para designers: trate ênfase de CTA como hierarquia, não como diferenciação, e diferencie a identidade com tipografia, composição e imagem.
-- Teste da primeira tela (texto do Pageformance): sem contexto prévio, ela responde para quem é a oferta, que tarefa ou resultado ela apoia e o que o visitante pode fazer em seguida?
-- Entre 3.793 sites com captura anterior comparável, 863 mudaram ao menos um campo limpo do hero: descrições em 598 sites e headlines em 577, contra 285 mudanças de CTA (a página não diz se são sites nem dá o denominador). Leitura da skill: o texto do hero parece ser editado mais que o botão.
-- Ressalva do Pageformance, na página de Agency (seção de mensagens atuais): "observações atuais, não uma tendência no tempo nem uma alegação de eficácia". A página geral de categorias não traz a mesma frase.
-- Caso KupFundusz (página de case da Squareblack, texto de marketing): animações e transições simplificadas para menos de 1 segundo; "minimalismo de bom gosto com cores maximalistas" gerou as sensações mais positivas nos testes; verde para crescimento no lugar do "azul de fintech" onipresente; dois fluxos principais (iniciante e avançado) em vez de uma média dos dois. Os resultados (+400% views, +350% clicks, +270% cadastros, +60% tempo no site, 6 meses depois, dados do Google Analytics do cliente) são os mesmos já citados em "Métricas e resultados citados" e valem para o redesign inteiro.
-- Squareblack descreve o método "typeframing": cada tela é argumentada em palavras antes dos pixels. Reforça "copy antes do visual"; o método não é publicado em detalhe.
-- Não use: o número "2% de conversão contra 11% com Squareblack" da home (sem fonte, amostra nem definição de conversão) nem as páginas de preço. O post do Pageformance sobre hero sem gráficos é pago e só a introdução é pública: ela afirma que muitos negócios acham gráficos bonitos necessários e chama isso de errado; a análise de cinco heros não foi lida.
 
 ## Checklist de revisão
 

@@ -3,7 +3,7 @@ name: malewicz-design
 description: Aplica as regras de design web, UI/UX e conversão do canal Malewicz ao desenhar, melhorar ou auditar landing page (hero, headline, CTA, pricing), SaaS, web app, dashboard, tabela, formulário, tela de login e mobile: grid de 8 pt, espaçamento, tipografia, paleta, contraste, design genérico ou AI slop. Cobre também portfólio e case study de designer UX/UI e resume de designer. Resumo não oficial, sem afiliação com o autor. Applies Malewicz's UI/web design and conversion rules when building or reviewing pages and screens. Not for backend, print/branding, funnel strategy without UI, or non-designer resumes.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.0.1"
   source: vídeos do canal Malewicz (Malewicz Design); projeto não oficial
   language: pt-BR
 ---
